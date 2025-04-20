@@ -1,4 +1,5 @@
 import Image from "next/image";
+import styles from "./page.module.css";
 
 interface Change {
     date: string;
@@ -20,25 +21,25 @@ export default async function Home() {
     console.log("Contenido:", changes);
     
     return (
-        <div>
+        <div className="styles.container">
             <h1>Tabla de cambios</h1>
-            <p>{new Date().toLocaleTimeString()}</p>
-            <table>
+            <p className="letter">Última hora de actualización: {new Date().toLocaleTimeString()}</p>
+            <table className={styles.table}>
                 <thead>
                     <tr>
-                        <th>Fecha</th>
-                        <th>Hora</th>
-                        <th>Producto</th>
-                        <th>Cantidad</th>
+                        <th className="letter">Fecha</th>
+                        <th className="letter">Hora</th>
+                        <th className="letter">Producto</th>
+                        <th className="letter">Cantidad</th>
                     </tr>
                 </thead>
                 <tbody>
                     {changes.map((change) => (
                         <tr key={change.date + change.time}>
-                            <td>{change.date}</td>
-                            <td>{change.time}</td>
-                            <td>{change.product}</td>
-                            <td>{change.amount}</td>
+                            <td className="letter">{change.date}</td>
+                            <td className="letter">{change.time}</td>
+                            <td className="letter">{change.product}</td>
+                            <td className="letter">{change.amount}</td>
                         </tr>
                     ))}
                 </tbody>
