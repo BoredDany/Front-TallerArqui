@@ -1,0 +1,11 @@
+services:
+  front_analyst:
+    build:
+      context: FrontAnalyst/.
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+
+volumes:
+  analyst-db:
+  products-db:
