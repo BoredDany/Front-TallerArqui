@@ -6,7 +6,7 @@ function ProductsNewPage() {
     <div className="hScreen flex items-center justify-center">
       <Card>
         <CardHeader>
-          <CardTitle>Create Product</CardTitle>
+          <CardTitle>Create New Product</CardTitle>
         </CardHeader>
         <CardContent>
           <ProductForm />

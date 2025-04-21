@@ -1,40 +1,53 @@
-"use client"
+"use client";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
 import { useForm } from "react-hook-form";
-import {createProduct} from "../new/products.api";
+import { createProduct, CreateProductDto } from "../products.api";
+import { useRouter } from "next/navigation";
 
 export function ProductForm() {
-    const {register, handleSubmit} = useForm()
+  const { register, handleSubmit } = useForm<CreateProductDto>(); 
+  const router = useRouter();
 
-    const onsubmit = handleSubmit(async(data) => {
-        console.log(data);
-        await createProduct(data);
-    })
-    return (
-        <form onSubmit={onsubmit}>
-            <Label>Product Name</Label>
-            <Input
-                {...register("name", {required: true})}
-            />
+  const onSubmit = handleSubmit(async (data) => {
+    console.log(data);
+    await createProduct(data); 
+    router.push("/");
+    router.refresh(); // Refresh the page to see the new product
+  });
 
-            <Label>Price</Label>
-            <Input
-                type="number"
-                {...register("price", {required: true})}
-            />
+  return (
+    <form onSubmit={onSubmit} className="space-y-4">
+      <div>
+        <Label htmlFor="name">Product Name</Label>
+        <Input
+          id="name"
+          {...register("name", { required: true })}
+        />
+      </div>
 
-            <Label>Stock</Label>
-            <Input
-                type="number"
-                {...register("stock", {required: true})}
-            />
+      <div>
+        <Label htmlFor="price">Price</Label>
+        <Input
+          id="price"
+          type="number"
+          step="0.01"
+          {...register("price", { required: true, valueAsNumber: true })}
+        />
+      </div>
 
-            <Button>
-              Create Product
-            </Button>
-        </form>
-    );
+      <div>
+        <Label htmlFor="stock">Stock</Label>
+        <Input
+          id="stock"
+          type="number"
+          {...register("stock", { required: true, valueAsNumber: true })}
+        />
+      </div>
+
+      <Button type="submit">Create Product</Button>
+    </form>
+  );
 }
