@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .table {
+    border: 2px solid fuchsia;
+    border-collapse: collapse;
+    text-align: center;
+    width: 600px; /* O un porcentaje como width: 70% */
+    margin: auto;
+  }
+  
+  .table th,
+  .table td {
+    border: 2px solid #db3ba0;
+    padding: 10px;
+    text-align: center;
+  }
+
+  
