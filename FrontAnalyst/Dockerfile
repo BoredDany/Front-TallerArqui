@@ -7,7 +7,9 @@ WORKDIR /app
 COPY package.json package-lock.json* ./
 
 # Instalar solo dependencias necesarias para construir
+RUN npm i --save-dev @types/node
 RUN npm install --frozen-lockfile
+
 
 # Copiar el resto del código fuente
 COPY . .

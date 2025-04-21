@@ -10,7 +10,7 @@ interface Change {
 
 export default async function Home() {
     const res = await fetch(
-        'http://localhost:8000/changes_history/view_last_changes/',
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/changes_history/view_last_changes/`,
         {cache: 'no-store'}
     );
     
