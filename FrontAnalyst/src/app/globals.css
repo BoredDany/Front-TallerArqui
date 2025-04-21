@@ -1,0 +1,59 @@
+
+:root {
+  --background: #fedcf9;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #000000;
+    --foreground: #ededed;
+  }
+}
+
+/* Estilos globales */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  margin: 0;
+  padding: 0;
+}
+
+div{
+  text-align: center;
+  margin: 5 auto; /* centrado con display: block */
+}
+
+/* Estilo personalizado para h1 */
+h1 {
+  font-family: "Special Gothic Condensed One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--foreground);
+}
+
+.letter{
+  font-family: "Lato", sans-serif;
+  
+  font-weight: bold;
+  font-style: normal;
+}
+
+.button{
+  background-color: #db3ba0;
+  color: whitesmoke;
+  padding: 0.5rem 1rem; /* le da cuerpo */
+  text-align: center;
+  display: inline-block;
+  border-radius: 0.5rem;
+  margin: 1rem auto; /* centrado con display: block más abajo */
+}
